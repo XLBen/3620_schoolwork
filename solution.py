@@ -46,6 +46,8 @@ def perceptron(age, hg, cls):
                 updatedhowmanytimes += 1;
         if updatedhowmanytimes == 0:
             break;
+    age, hg, cls = load_data("stroke_separable.csv")
+    w0, randomnumber4age, randomnumber4hg = perceptron(age, hg, cls)
     return w0, randomnumber4age, randomnumber4hg
 
         
