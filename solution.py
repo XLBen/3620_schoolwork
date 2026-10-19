@@ -44,11 +44,15 @@ def perceptron(age, hg, cls):
                 randomnumber4age = randomnumber4age - age[i];
                 updated = True;
                 updatedhowmanytimes += 1;
-            elif updatedhowmanytimes == 0:
-                    break
-        return w0, randomnumber4age, randomnumber4hg
-
+        if updatedhowmanytimes == 0:
+            break
+        
+    for i in range(len(age)):
+        score = w0 + randomnumber4age*age[i] + randomnumber4hg*hg[i]
+        print(i, score, cls[i])
+        
+    return w0, randomnumber4age, randomnumber4hg
 
 age, hg, cls = load_data("stroke_separable.csv")
 w0, w_age, w_hg = perceptron(age, hg, cls)
-print(w0, w_age, w_hg)
+print(w0, w_age, w_hg) 
